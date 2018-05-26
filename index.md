@@ -1,5 +1,5 @@
 # Topics
 
-- [Amazon Web Services](/amazon-web-services)
-- [Azure](/azure)
-- [Kentico](/kentico)
+- [Amazon Web Services](/amazon-web-services/index.md)
+- [Azure](/azure/index.md)
+- [Kentico](/kentico/index.md)
