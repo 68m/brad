@@ -6,5 +6,6 @@
 	- [Route 53](amazon-web-services/route-53)
 	- [Simple Storage Service (S3)](amazon-web-services/simple-storage-services)
 - Azure
-- Kentico
-	- [Pages](kentico/pages)
+- Attunity Replicate
+	- [Connect to Server](attunity-replicate/access-admin-interface)
+	- [Setup Replication Aurora -> SQL Server](attunity-replicate/setup-replication-aurora-sql-server)
