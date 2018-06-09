@@ -8,4 +8,4 @@
 - Azure
 - Attunity Replicate
 	- [Connect to Server](attunity-replicate/access-admin-interface)
-	- [Setup Replication Aurora -> SQL Server](attunity-replicate/setup-replication-aurora-sql-server)
+	- [Setup Replication Aurora -> Aurora](attunity-replicate/setup-replication-aurora-to-aurora)
