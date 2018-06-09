@@ -8,4 +8,5 @@
 - Azure
 - Attunity Replicate
 	- [Connect to Server](attunity-replicate/access-admin-interface)
+	- [Manage Endpoint Connections](manage-endpoint-connections)
 	- [Setup Replication Aurora -> Aurora](attunity-replicate/setup-replication-aurora-to-aurora)
