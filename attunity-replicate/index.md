@@ -18,21 +18,25 @@ To replicate between database servers, sources and endpoints need to be setup fi
 
 ## AWS RDS Aurora
 
-Download and install the [MySQL ODBC Driver](https://cdn.mysql.com//Downloads/Connector-ODBC/5.3/mysql-connector-odbc-5.3.10-winx64.msi)
+Download and install the [MySQL ODBC Driver](https://cdn.mysql.com//Downloads/Connector-ODBC/5.3/mysql-connector-odbc-5.3.10-winx64.msi) if the driver does not exist.
+
+In Attunity:
 
 - Select, "New Endpoint Connection"
 - Enter in a name for the connection
 - Choose "Source" or "Target"
 - Select Type, "MySQL"
 - Enter into "Server Name" the hostname or IP of the server
-- Enter into "Username" the username for the database server
+- Enter into "User name" the username for the database server
 - Enter into "Password" the password for the database server
 
 ## AWS RDS SQL Server (Query Based CDC)
 
 SQL Server Native Client must be installed to use this method. Download and install the [SQL Server Native Client](https://download.microsoft.com/download/B/E/D/BED73AAC-3C8A-43F5-AF4F-EB4FEA6C8F3A/ENU/x64/sqlncli.msi)
 
-### Create a Data Source in Windows
+### Create a System Data Source
+
+In Windows:
 
 - Search for "ODBC data sources (64-bit)"
 - Select the tab, "System DSN"
@@ -49,4 +53,14 @@ SQL Server Native Client must be installed to use this method. Download and inst
 
 You can test or select "OK" to finish the process.
 
+In Attunity:
 
+- Select, "New Endpoint Connection"
+- Enter in a name for the connection
+- Choose "Source" or "Target"
+- Select Type, "ODBC with CDC"
+- Select the option, "DSN", and select the button, "Browse"
+- Select the System DSN for the database server
+- Enter into "User name" the user name for the database server
+- Enter into "Password" the password for the database server
+- Select the button, "Save"
