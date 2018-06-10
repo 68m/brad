@@ -28,6 +28,25 @@ Download and install the [MySQL ODBC Driver](https://cdn.mysql.com//Downloads/Co
 - Enter into "Username" the username for the database server
 - Enter into "Password" the password for the database server
 
-## AWS RDS SQL Server
+## AWS RDS SQL Server (Query Based CDC)
 
-Currently 
+SQL Server Native Client must be installed to use this method. Download and install the [SQL Server Native Client](https://download.microsoft.com/download/B/E/D/BED73AAC-3C8A-43F5-AF4F-EB4FEA6C8F3A/ENU/x64/sqlncli.msi)
+
+### Create a Data Source in Windows
+
+- Search for "ODBC data sources (64-bit)"
+- Select the tab, "System DSN"
+- Select the button, "Add"
+- Select from the list, "SQL Server Native Client 11.0"
+- Select the button, "Finish"
+- Enter into "Name", a name for the DSN Source
+- Enter into "Server" the hostname or ip of the database server
+- Select "SQL Server Authentication" using a login ID and password entered by the user" for the option of how SQL Server should verify the authenticity of the login ID
+- Select the button, "Next"
+- Select the button, "Next", and don't change any of the options
+- Select the button, "Next", and don't change any of the options
+- Select the button, "Finish"
+
+You can test or select "OK" to finish the process.
+
+
