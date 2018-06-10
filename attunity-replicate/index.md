@@ -53,6 +53,8 @@ In Windows:
 
 You can test or select "OK" to finish the process.
 
+### Create a New Connection
+
 In Attunity:
 
 - Select, "New Endpoint Connection"
@@ -64,3 +66,26 @@ In Attunity:
 - Enter into "User name" the user name for the database server
 - Enter into "Password" the password for the database server
 - Select the button, "Save"
+
+# Setup New Replication Task
+
+## Create Replication Task
+
+- Select the tab, "Tasks"
+- Select the button, "New Task"
+- Enter into "Name" the name of the task
+- Select if it is unidirectional or bidirectional
+- Task Options
+    - Full Load - Remove any data that exists on the target server, and do a full refresh the tables with the source
+    - Apply Changes - Replicate any changes in real time from the source to target
+    - Store Changes - Save any changes to the local Attunity server
+- For most cases, select "Full Load" and "Apply Changes"
+
+## Setup Source and Target for Replication
+
+- Select from the Endpoints sidebar on the left, the source server, and drag it on top of the circle labeled "Drop source server here"
+- Select from the Endpoints sidebar on the left, the target server, and drag it on top of the circle labeled "Drop target server here"
+
+## Select Tables to Replicate
+
+Select the button, "Table Selection"
