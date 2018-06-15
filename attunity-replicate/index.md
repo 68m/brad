@@ -88,4 +88,22 @@ In Attunity:
 
 ## Select Tables to Replicate
 
-Select the button, "Table Selection"
+This will select and prioritize which tables are replicated. Tables can be prioritized but only 7 levels deep. There are specific priorities:
+
+- Highest Priority
+- Higher Priority
+- High Priority
+- Normal Priority
+- Low Priority
+- Lower Priority
+- Lowest Priority
+
+### To add and remove tables:
+
+- Select the button, "Table Selection"
+- Enter into "Schema", the schema (SQL Server) or database name (MySQL/Aurora)
+- Enter into "Table", the name of the table, or part of the table name and using % as wildcards
+    - e.g.: %cust%
+- Select the table(s) from "Table List" on the left side, and move to the right by hitting the button, ">>"
+- Tables can be removed by selecting tables from the right side from "Selected Tables", and move them back by hitting the button, "<<"
+- Priority can be set in the "Selected Tables" section, and selecting from the Priority drop down for each table
