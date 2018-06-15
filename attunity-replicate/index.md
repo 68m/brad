@@ -107,3 +107,12 @@ This will select and prioritize which tables are replicated. Tables can be prior
 - Select the table(s) from "Table List" on the left side, and move to the right by hitting the button, ">>"
 - Tables can be removed by selecting tables from the right side from "Selected Tables", and move them back by hitting the button, "<<"
 - Priority can be set in the "Selected Tables" section, and selecting from the Priority drop down for each table
+
+# Run a Task
+
+When starting a task for the first time, the tables should be reloaded from source to destination targets. After the initial load of data, whenever data is inserted, updated or deleted, it will be replicated in real time from source to destination.
+
+- Select the small down arrow next to the button "> Run"
+- A dropdown will appear, select the option "Reload Target"
+- Select the button "Yes" to reload the target tables
+
