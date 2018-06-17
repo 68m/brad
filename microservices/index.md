@@ -46,3 +46,15 @@ A single microservice saga will manage the multiple calls out to many microservi
 # Multiple Microservices - Saga (Choreography) + Event Sourcing
 
 In order for a Saga (Choreagraphy) to be reliable, it needs to publish and subscribe to events. Event Sourcing is one solution to do that.
+
+Event sourcing persists the state of an object such as an Order or a Customer as a sequence of state-changing events. Whenever the state of a business entity changes, a new event is appended to the list of events. The application reconstructs an entity’s current state by replaying the events.
+
+If there are too many events, snapshots can be stored as a quicker way to retrieve objects.
+
+# Multiple Microservices - Command Query Responsibility Segregation (CQRS)
+
+With microservices, queries become more difficult due to the separation between each microservice. API Gateways is one way to solve that, but performance suffers. Another solution is Command Query Responsibility Segregation (CQRS). Basically the commands, PUT, DELETE, and POST are separated from GET requests.
+
+All commands will publish an event to the event store. That event store will then push that event to whatever source is subscribed to it.
+
+![multiple microservices - command query responsibility segregation](https://www.lucidchart.com/publicSegments/view/8e636d96-decd-4356-a83b-a3bb7fd6a908/image.png)
