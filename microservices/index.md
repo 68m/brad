@@ -57,4 +57,4 @@ With microservices, queries become more difficult due to the separation between 
 
 All commands will publish an event to the event store. That event store will then push that event to whatever source is subscribed to it.
 
-![multiple microservices - command query responsibility segregation](https://www.lucidchart.com/publicSegments/view/8e636d96-decd-4356-a83b-a3bb7fd6a908/image.png)
+![multiple microservices - command query responsibility segregation](https://www.lucidchart.com/publicSegments/view/ab21b4ba-ab17-4679-b8e6-5b7e3c71b6e8/image.png)
