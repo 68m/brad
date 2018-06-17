@@ -9,9 +9,9 @@ A microservice is a single service that is contained in its own container. This 
 When dealing with microservices, there are different ways to query data from multiple microservices. There is also the problem of how to commit a transaction against multiple microservices. Some solutions for these problems are:
 
 - API Gateway
-- CQRS
 - Saga
 - Event Sourcing
+- Command Query Responsibility Separation (CQRS)
 
 # Multiple Microservices - API Gateway
 
