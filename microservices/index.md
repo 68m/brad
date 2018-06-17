@@ -19,4 +19,27 @@ An API Gateway will query multiple microservices at once and return data combini
 
 ![multiple microservices - api gateway](https://www.lucidchart.com/publicSegments/view/4d6c388a-1894-4495-814c-617db67d82e9/image.png)
 
+# Multiple Microservices - Saga (Choreography)
+
+Microservices will pass events to each other in a chain to create a transactional process. If anything fails in that chain of events, it will rollback those changes, or update the main processes state (e.g. pending, error, success).
+
+Say you want to create an order. There will be a chain of events when executing the saga:
+
+- Execute OrderSaga
+- Send Event CreateOrder
+- OrderService receives CreateOrder, creates order and sets status to pending, send PayOrder event
+- PaymentService receives PayOrder event, attemps to pay order through payment gateway, Payment fails and event PaymentFailed is sent
+- OrderService receives PaymentFailed event, updates order to status of error, sends LogOrderError event
+- LogService receives LogOrderError event, logs error
+
+# Multiple Microservices - Saga (Orchestrated)
+
+A single microservice saga will manage the multiple calls out to many microservices. This saga will call, get results, then call another microservice, and over and over till it's done. If there is an issue returned, it will handle accordingly.
+
+- Execute OrderSaga
+- Call CreateOrder in OrderService, order is created, returns success
+- Call PayOrder in PaymentService, payment fails, returns error
+- Call LogOrderError in LogService, log error
+- Call UpdateOrder in OrderService, update status to error
+- Return failure
 
