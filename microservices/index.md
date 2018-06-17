@@ -43,3 +43,6 @@ A single microservice saga will manage the multiple calls out to many microservi
 - Call UpdateOrder in OrderService, update status to error
 - Return failure
 
+# Multiple Microservices - Saga (Choreography) + Event Sourcing
+
+In order for a Saga (Choreagraphy) to be reliable, it needs to publish and subscribe to events. Event Sourcing is one solution to do that.
