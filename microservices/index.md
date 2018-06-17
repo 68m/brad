@@ -55,6 +55,6 @@ If there are too many events, snapshots can be stored as a quicker way to retrie
 
 With microservices, queries become more difficult due to the separation between each microservice. API Gateways is one way to solve that, but performance suffers. Another solution is Command Query Responsibility Segregation (CQRS). Basically the commands, PUT, DELETE, and POST are separated from GET requests.
 
-All commands will publish an event to the event store. That event store will then push that event to whatever source is subscribed to it.
+All commands will publish an event to the event store. That event store will then push that event to whatever source is subscribed to it. It will have a view of objects, and information for specific entities. This also allows different entities to have different databases. E.g. if there needs to be a view that is searchable it can be in ElasticSearch. If there is a need for relational data, then it can go in a SQL Server.
 
 ![multiple microservices - command query responsibility segregation](https://www.lucidchart.com/publicSegments/view/ab21b4ba-ab17-4679-b8e6-5b7e3c71b6e8/image.png)
