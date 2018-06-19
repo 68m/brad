@@ -34,6 +34,47 @@ In Attunity:
 
 SQL Server Native Client must be installed to use this method. Download and install the [SQL Server Native Client](https://download.microsoft.com/download/B/E/D/BED73AAC-3C8A-43F5-AF4F-EB4FEA6C8F3A/ENU/x64/sqlncli.msi)
 
+* For any tables that will be replicated, there needs to be 2 columns setup. One is a column that can be sorted in descending order, timestamp. The other is the operation performed on the column. The operation column will specify what operation was applied to the row on that specific time it was updated/deleted/etc.
+
+To capture the operation a trigger can be created on the table.
+
+```
+CREATE TRIGGER dbo.[{table}_Operation]
+ON dbo.{table}
+AFTER INSERT, UPDATE, DELETE
+AS 
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @Operation as char(1);
+
+    SET @Operation = 'I';
+    
+    IF EXISTS(SELECT * FROM DELETED)
+        BEGIN
+            SET @Operation = 
+                CASE
+                    WHEN EXISTS(SELECT * FROM INSERTED) THEN 'U'
+                    ELSE 'D'
+                END
+
+                
+        END
+    ELSE 
+        IF NOT EXISTS(SELECT * FROM INSERTED) RETURN; -- Nothing updated or inserted.
+
+    UPDATE 
+        {table} 
+    SET 
+        Operation = @Operation 
+    FROM 
+        Inserted
+    WHERE
+        Inserted.Id = {table}.Id
+
+END
+```
+
 ### Create a System Data Source
 
 In Windows:
