@@ -165,3 +165,13 @@ When starting a task for the first time, the tables should be reloaded from sour
 - A dropdown will appear, select the option "Reload Target"
 - Select the button "Yes" to reload the target tables
 
+# Enable RDS SQL Server for CDC
+
+- exec msdb.dbo.rds_cdc_enable_db 'database_name'
+
+
+--Begin tracking a table
+exec sys.sp_cdc_enable_table   
+    @source_schema           = N'dbo',
+    @source_name             = N'BusinessType',
+    @role_name               = N'CDCRole'
