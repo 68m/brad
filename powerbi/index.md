@@ -11,18 +11,24 @@ After selecting "Register" an Application ID will be generated. Save this.
 
 Customer Portal PowerBI Integration - DEV: fa0db634-ffd5-40e9-9782-e6a348baae6a
 
-# Access Admin Interface
+# Grant Access to Power BI w/ New Application
 
-Attunity Replicate is installed on a server. The admin interface is also installed on the local server which cannot be accessed, by default, from outside the server.
+In order for the API calls to work, permissions need to be granted on the Application to Power BI. Login to the Azure Portal, and go to the following:
 
-- Remote Desktop into the server
-- Go to URL, https://{ec2-servername}/attunityreplicate/login/
-- Put in the EC2 Remote Desktop login credentials
-    - L: Administrator
-    - P: xxxxxxxxxxxxx
+Home > Rubicon Global Holdings > App Registrations > APPLICATION > Settings > Required Permissions
 
-# Manage Endpoint Connections
+There will be a button called "Grant permissions". Select it and grant them.
 
-To replicate between database servers, sources and endpoints need to be setup first. 
+# API - Generate Embed Token
 
-## AWS RDS Aurora
+GET: https://login.windows.net/common/oauth2/token
+
+BODY
+
+x-www-form-urlencoded
+
+client_id: {APPLICATION_ID}
+resource: https://analysis.windows.net/powerbi/api
+grant_type: password
+username: {AD_USERNAME}
+password: {AD_PASSWORD}
