@@ -19,7 +19,7 @@ Home > Rubicon Global Holdings > App Registrations > APPLICATION > Settings > Re
 
 There will be a button called "Grant permissions". Select it and grant them.
 
-# API - Generate Embed Token
+# API - Generate Access Token
 
 GET: https://login.windows.net/common/oauth2/token
 
@@ -32,3 +32,17 @@ resource: https://analysis.windows.net/powerbi/api
 grant_type: password
 username: {AD_USERNAME}
 password: {AD_PASSWORD}
+
+# API - Generate Reports Embed Token
+
+POST: https://api.powerbi.com/v1.0/myorg/groups/{group_id}/reports/{report_id}/GenerateToken
+
+POST: https://api.powerbi.com/v1.0/myorg/groups/eeb49ce7-bef2-443c-a815-c28c5612b35b/reports/01d7aaf8-b199-4600-b1d6-33508f92c263/GenerateToken
+
+Authorization: Bearer {access_token}
+
+Body:
+
+{
+  "accessLevel": "View"
+}
